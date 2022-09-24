@@ -18,3 +18,12 @@ cv2.destroyAllWindows()
 # ③作成した2値画像をもとに、白色領域（ミルククラウン）の輪郭を抽出
 contours = cv2.findContours(img_thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[0]
 contour = max(contours, key=lambda x: cv2.contourArea(x))
+
+# ④抽出した領域を用いて、ミルククラウン領域とそれ以外を分けたmask画像を作成
+out = np.zeros_like(img_thresh)
+mask = cv2.drawContours(out, [contour], -1, color=255, thickness=-1)
+result = np.where(mask==255, img_thresh, out)
+# img_contour = cv2.drawContours(img_thresh, contours, -1, (255, 0, 0), 3)
+cv2.imshow("img_edge", result)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
