@@ -5,8 +5,6 @@ Python 3.8.5
 
 ### リポジトリの作成
 `$ git clone https://github.com/Shun712/pros_cons_test.git`
-### 作業ディレクトリを作成
-`$ mkdir test`
 ### 作業ディレクトリに移動
 `$ cd pros_cons_test`
 ### venvで仮想環境を作成
